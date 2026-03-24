@@ -43,7 +43,7 @@ class DroneController:
         rr = base_vel + roll + pitch + yaw
         
         MAX_VEL = 100.0
-        self.__front_left_motor.setVelocity(max(0.0, min(fl, MAX_VEL)))
-        self.__front_right_motor.setVelocity(max(0.0, min(fr, MAX_VEL)))
-        self.__rear_left_motor.setVelocity(max(0.0, min(rl, MAX_VEL)))
-        self.__rear_right_motor.setVelocity(max(0.0, min(rr, MAX_VEL)))
+        self.__front_left_motor.setVelocity(max(-MAX_VEL, min(fl, MAX_VEL)))
+        self.__front_right_motor.setVelocity(-max(-MAX_VEL, min(fr, MAX_VEL)))
+        self.__rear_left_motor.setVelocity(-max(-MAX_VEL, min(rl, MAX_VEL)))
+        self.__rear_right_motor.setVelocity(max(-MAX_VEL, min(rr, MAX_VEL)))

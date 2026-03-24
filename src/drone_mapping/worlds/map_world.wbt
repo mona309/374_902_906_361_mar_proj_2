@@ -96,6 +96,7 @@ Viewpoint {
   position -12.422696006483225 -6.727066901400375 30.406658794186228
   exposure 0.5
   ambientOcclusionRadius 1
+  follow "Mavic2Pro"
 }
 TexturedBackground {
   texture "empty_office"
@@ -2073,13 +2074,29 @@ DEF TREES Group {
 }
 
 Mavic2Pro {
-  translation 0 1.0 0
+  translation -6.87 -3.3 1.8
   name "Mavic2Pro"
   controller "<extern>"
   cameraSlot [
     Camera {
       width 640
       height 480
+    }
+    Lidar {
+      name "lidar"
+      horizontalResolution 512
+      fieldOfView 6.28318
+      verticalFieldOfView 0.2
+      numberOfLayers 1
+      maxRange 10
+    }
+    Lidar {
+      name "lidar_3d"
+      horizontalResolution 512
+      fieldOfView 6.28318
+      verticalFieldOfView 0.5235
+      numberOfLayers 16
+      maxRange 10
     }
   ]
 }

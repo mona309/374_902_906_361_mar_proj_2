@@ -24,8 +24,17 @@ def generate_launch_description():
         parameters=[{'use_sim_time': True}]
     )
     
+    waypoint_navigator_node = Node(
+        package='drone_mapping',
+        executable='waypoint_navigator',
+        name='waypoint_navigator',
+        output='screen',
+        parameters=[{'use_sim_time': True}]
+    )
+    
     return LaunchDescription([
         bringup_launch,
         slam_launch,
-        rviz_node
+        rviz_node,
+        waypoint_navigator_node
     ])
