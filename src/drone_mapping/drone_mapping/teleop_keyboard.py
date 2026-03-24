@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+import sys
+import select
+import termios
+import tty
+
+settings = termios.tcgetattr(sys.stdin)
+
+msg = """
+Drone Teleop Controller
+---------------------------
+Moving around:
+        w
+   a    s    d
+
+Altitude:
+   q (up), e (down)
+
+k : Kill switch (Zero Velocity)
+r : Reset Base Velocity
+CTRL-C to quit
+"""
+
+moveBindings = {
+    'w': (0, -1, 0, 0),
+    's': (0, 1, 0, 0),
+    'a': (-1, 0, 0, 0),
+    'd': (1, 0, 0, 0),
+    'q': (0, 0, 1, 0),
+    'e': (0, 0, -1, 0),
+}
+
+def getKey():
+    tty.setraw(sys.stdin.fileno())
+    select.select([sys.stdin], [], [], 0)
+    key = sys.stdin.read(1)
+    termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+    return key
+
+class TeleopKeyboard(Node):
+    def __init__(self):
+        super().__init__('teleop_keyboard')
+        self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.target_linear_z = 0.0
+        self.target_angular_x = 0.0
+        self.target_angular_y = 0.0
+        self.target_angular_z = 0.0
+        self.get_logger().info(msg)
+
+    def timer_callback(self):
+        key = getKey()
+        if key in moveBindings.keys():
+            x, y, z, th = moveBindings[key]
+            self.target_angular_x = float(x)
+            self.target_angular_y = float(y)
+            self.target_linear_z = float(z)
+            self.target_angular_z = float(th)
+        elif key == 'k':
+            self.target_linear_z = -10.0 # Force down or kill
+            self.target_angular_x = 0.0
+            self.target_angular_y = 0.0
+            self.target_angular_z = 0.0
+        elif key == 'r':
+            self.target_linear_z = 0.0
+            self.target_angular_x = 0.0
+            self.target_angular_y = 0.0
+            self.target_angular_z = 0.0
+        else:
+            if (key == '\x03'):
+                sys.exit(0)
+
+        t = Twist()
+        t.linear.z = self.target_linear_z
+        t.angular.x = self.target_angular_x
+        t.angular.y = self.target_angular_y
+        t.angular.z = self.target_angular_z
+        self.publisher_.publish(t)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = TeleopKeyboard()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
