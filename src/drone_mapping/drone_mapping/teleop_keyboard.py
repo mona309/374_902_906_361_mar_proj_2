@@ -35,7 +35,8 @@ moveBindings = {
 
 def getKey():
     tty.setraw(sys.stdin.fileno())
-    rlist, _, _ = select.select([sys.stdin], [], [], 0)
+    # Wait a short time in raw mode so normal key presses are captured reliably.
+    rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
     key = sys.stdin.read(1) if rlist else ''
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     return key
