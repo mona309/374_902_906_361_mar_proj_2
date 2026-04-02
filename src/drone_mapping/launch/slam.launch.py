@@ -12,7 +12,8 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'use_sim_time': True,
-            'odom_frame': 'odom',
+            # No wheel odometry available, keep slam in the base frame so TF is complete.
+            'odom_frame': 'base_link',
             'base_frame': 'base_link',
             'map_frame': 'map',
             'scan_topic': '/drone/lidar/scan',

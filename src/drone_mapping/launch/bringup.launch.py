@@ -58,6 +58,13 @@ def generate_launch_description():
         executable='static_transform_publisher',
         arguments=['0', '0', '0.05', '0', '0', '0', 'base_link', 'lidar']
     )
+
+    # Publish the transform for the 3D lidar so the point cloud can be visualized.
+    static_tf_lidar_3d = Node(
+      package='tf2_ros',
+      executable='static_transform_publisher',
+      arguments=['0', '0', '0.05', '0', '0', '0', 'base_link', 'lidar_3d']
+    )
     
     # Odometry is required for mapping, providing a fake static one 
     # since we don't have visual odometry implemented.
@@ -77,6 +84,7 @@ def generate_launch_description():
         drone_driver,
         static_tf_cam,
         static_tf_lidar,
+        static_tf_lidar_3d,
         fake_odom,
         safety_node,
         RegisterEventHandler(

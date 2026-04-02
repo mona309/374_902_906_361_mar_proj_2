@@ -35,15 +35,16 @@ moveBindings = {
 
 def getKey():
     tty.setraw(sys.stdin.fileno())
-    select.select([sys.stdin], [], [], 0)
-    key = sys.stdin.read(1)
+    rlist, _, _ = select.select([sys.stdin], [], [], 0)
+    key = sys.stdin.read(1) if rlist else ''
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     return key
 
 class TeleopKeyboard(Node):
     def __init__(self):
         super().__init__('teleop_keyboard')
-        self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
+        # Publish raw commands so safety_node can filter before forwarding to /cmd_vel.
+        self.publisher_ = self.create_publisher(Twist, '/cmd_vel_raw', 10)
         self.timer = self.create_timer(0.1, self.timer_callback)
         self.target_linear_z = 0.0
         self.target_angular_x = 0.0
