@@ -25,12 +25,12 @@ CTRL-C to quit
 """
 
 moveBindings = {
-    'w': (0, 5, 0, 0),    # Forward: Pitch Positive
-    's': (0, -5, 0, 0),   # Backward: Pitch Negative
-    'a': (0, 0, 0, -5),   # Yaw Left
-    'd': (0, 0, 0, 5),    # Yaw Right
-    'q': (0, 0, 5, 0),    # Up
-    'e': (0, 0, -5, 0),   # Down
+    'w': (0, 11, 0, 0),   # Forward: Pitch Positive
+    's': (0, -11, 0, 0),  # Backward: Pitch Negative
+    'a': (0, 0, 0, -8),   # Yaw Left
+    'd': (0, 0, 0, 8),    # Yaw Right
+    'q': (0, 0, 8, 0),    # Up
+    'e': (0, 0, -8, 0),   # Down
 }
 
 def getKey():

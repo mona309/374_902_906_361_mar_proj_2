@@ -19,6 +19,14 @@ class WaypointNavigator(Node):
         self.front_dist = 10.0
         self.turn_dir = -1.0
         self.explore_step = 0
+        # Motion tuning defaults for faster mapping while keeping obstacle checks active.
+        self.takeoff_thrust = 2.1
+        self.cruise_altitude_cmd = 0.45
+        self.forward_pitch_fast = 5.2
+        self.forward_pitch_slow = 3.8
+        self.turn_yaw_rate = 4.8
+        self.avoid_yaw_rate = 5.0
+        self.avoid_reverse_pitch = -3.2
         
     def scan_cb(self, msg):
         center = len(msg.ranges) // 2
@@ -46,7 +54,7 @@ class WaypointNavigator(Node):
         phase_elapsed = (now - self.phase_start_time).nanoseconds / 1e9
         
         if self.state == 'TAKEOFF':
-            t.linear.z = 1.8
+            t.linear.z = self.takeoff_thrust
             if elapsed > 2.5:
                 self.state = 'EXPLORE'
                 self.phase_start_time = now
@@ -54,15 +62,15 @@ class WaypointNavigator(Node):
         elif self.state == 'EXPLORE':
             # Alternate between long and short forward pushes plus periodic turns
             # so the drone does not stay trapped in one local loop.
-            t.linear.z = 0.35
+            t.linear.z = self.cruise_altitude_cmd
 
             if self.explore_step % 2 == 0:
-                t.angular.y = 3.8
+                t.angular.y = self.forward_pitch_fast
                 if phase_elapsed > 6.0:
                     self.state = 'TURN'
                     self.phase_start_time = now
             else:
-                t.angular.y = 2.7
+                t.angular.y = self.forward_pitch_slow
                 if phase_elapsed > 3.5:
                     self.state = 'TURN'
                     self.phase_start_time = now
@@ -72,8 +80,8 @@ class WaypointNavigator(Node):
                 self.phase_start_time = now
                 self.get_logger().info(f'Obstacle at {self.front_dist:.2f} m, avoiding.')
         elif self.state == 'TURN':
-            t.linear.z = 0.3
-            t.angular.z = self.turn_dir * 3.8
+            t.linear.z = self.cruise_altitude_cmd
+            t.angular.z = self.turn_dir * self.turn_yaw_rate
             if phase_elapsed > 1.6:
                 self.explore_step += 1
                 # Alternate turn side to increase global coverage.
@@ -81,9 +89,9 @@ class WaypointNavigator(Node):
                 self.state = 'EXPLORE'
                 self.phase_start_time = now
         elif self.state == 'AVOID':
-            t.linear.z = 0.3
-            t.angular.y = -2.5
-            t.angular.z = self.turn_dir * 4.2
+            t.linear.z = self.cruise_altitude_cmd
+            t.angular.y = self.avoid_reverse_pitch
+            t.angular.z = self.turn_dir * self.avoid_yaw_rate
             if phase_elapsed > 1.2 and self.front_dist > 2.5:
                 self.explore_step += 1
                 self.turn_dir *= -1.0

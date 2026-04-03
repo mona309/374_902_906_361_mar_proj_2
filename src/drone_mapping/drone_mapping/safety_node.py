@@ -1,4 +1,5 @@
 import rclpy
+import math
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
@@ -14,15 +15,21 @@ class SafetyNode(Node):
         # Publish safe commands
         self.cmd_pub = self.create_publisher(Twist, '/cmd_vel', 10)
         
-        self.min_distance = 1.0 # meters
+        self.min_distance = 0.55 # meters
+        self.min_valid_range = 0.20 # ignore near-zero returns from drone body/noise
         self.obstacle_detected = False
         self.latest_cmd = Twist()
         
     def lidar_callback(self, msg):
         # Check ranges for obstacles right in front
         # Assuming 0 is straight ahead, depending on Lidar mounting
-        front_ranges = msg.ranges[len(msg.ranges)//2 - 10 : len(msg.ranges)//2 + 10]
-        valid_ranges = [r for r in front_ranges if not tuple(str(r)) == ('n', 'a', 'n') and r > 0]
+        center = len(msg.ranges) // 2
+        window = 20
+        front_ranges = msg.ranges[center - window : center + window]
+        valid_ranges = [
+            r for r in front_ranges
+            if not math.isnan(r) and not math.isinf(r) and r > self.min_valid_range
+        ]
         
         if valid_ranges and min(valid_ranges) < self.min_distance:
             if not self.obstacle_detected:
