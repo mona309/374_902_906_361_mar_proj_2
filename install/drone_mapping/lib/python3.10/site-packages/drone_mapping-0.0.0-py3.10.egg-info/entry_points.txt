@@ -1,0 +1,2 @@
+[console_scripts]
+drone_mapping_node = drone_mapping.drone_mapping_node:main

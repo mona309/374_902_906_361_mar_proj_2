@@ -1,0 +1,30 @@
+[2.393s] Invoking command in '/home/mona/drone_mapping_ws/src/drone_mapping': PYTHONPATH=/home/mona/drone_mapping_ws/build/drone_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_mapping build --build-base /home/mona/drone_mapping_ws/build/drone_mapping/build install --record /home/mona/drone_mapping_ws/build/drone_mapping/install.log --single-version-externally-managed install_data
+[3.178s] running egg_info
+[3.257s] writing ../../build/drone_mapping/drone_mapping.egg-info/PKG-INFO
+[3.258s] writing dependency_links to ../../build/drone_mapping/drone_mapping.egg-info/dependency_links.txt
+[3.263s] writing entry points to ../../build/drone_mapping/drone_mapping.egg-info/entry_points.txt
+[3.263s] writing requirements to ../../build/drone_mapping/drone_mapping.egg-info/requires.txt
+[3.263s] writing top-level names to ../../build/drone_mapping/drone_mapping.egg-info/top_level.txt
+[3.398s] reading manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+[3.400s] writing manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+[3.400s] running build
+[3.401s] running build_py
+[3.401s] copying drone_mapping/__init__.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+[3.401s] copying drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+[3.401s] running install
+[3.412s] running install_lib
+[3.467s] copying /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping
+[3.468s] byte-compiling /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping/drone_mapping_node.py to drone_mapping_node.cpython-310.pyc
+[3.473s] running install_data
+[3.473s] copying resource/drone_mapping -> /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index/packages
+[3.475s] copying package.xml -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping
+[3.475s] copying launch/drone_mapping_launch.py -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/launch
+[3.475s] copying worlds/drone_mapping_world.sdf -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/worlds
+[3.476s] copying rviz/drone_mapping.rviz -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/rviz
+[3.477s] running install_egg_info
+[3.521s] removing '/home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping-0.0.0-py3.10.egg-info' (and everything under it)
+[3.522s] Copying ../../build/drone_mapping/drone_mapping.egg-info to /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping-0.0.0-py3.10.egg-info
+[3.527s] running install_scripts
+[4.014s] Installing drone_mapping_node script to /home/mona/drone_mapping_ws/install/drone_mapping/lib/drone_mapping
+[4.015s] writing list of installed files to '/home/mona/drone_mapping_ws/build/drone_mapping/install.log'
+[4.064s] Invoked command in '/home/mona/drone_mapping_ws/src/drone_mapping' returned '0': PYTHONPATH=/home/mona/drone_mapping_ws/build/drone_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_mapping build --build-base /home/mona/drone_mapping_ws/build/drone_mapping/build install --record /home/mona/drone_mapping_ws/build/drone_mapping/install.log --single-version-externally-managed install_data

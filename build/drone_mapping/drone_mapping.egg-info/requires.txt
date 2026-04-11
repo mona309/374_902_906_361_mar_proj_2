@@ -1,0 +1,7 @@
+setuptools
+numpy
+scipy
+opencv-python
+
+[test]
+pytest
