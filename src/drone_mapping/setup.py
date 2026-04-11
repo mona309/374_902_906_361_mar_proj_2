@@ -15,6 +15,7 @@ setup(
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         (os.path.join('share', package_name, 'worlds'), glob('worlds/*')),
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools', 'numpy', 'scipy', 'opencv-python'],
     zip_safe=True,
@@ -31,6 +32,7 @@ setup(
         'console_scripts': [
             'drone_mapping_node = drone_mapping.drone_mapping_node:main',
             'drone_controller = drone_mapping.drone_controller:main',
+            'gazebo_drone_controller = drone_mapping.gazebo_drone_controller:main',
             'teleop_keyboard = drone_mapping.teleop_keyboard:main',
             'waypoint_navigator = drone_mapping.waypoint_navigator:main',
             'safety_node = drone_mapping.safety_node:main',

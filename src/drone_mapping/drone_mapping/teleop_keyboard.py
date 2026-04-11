@@ -45,7 +45,7 @@ class TeleopKeyboard(Node):
     def __init__(self):
         super().__init__('teleop_keyboard')
         # Publish raw commands so safety_node can filter before forwarding to /cmd_vel.
-        self.publisher_ = self.create_publisher(Twist, '/cmd_vel_raw', 10)
+        self.publisher_ = self.create_publisher(Twist, '/drone/cmd_vel', 10)
         self.timer = self.create_timer(0.1, self.timer_callback)
         self.target_linear_x = 0.0
         self.target_linear_y = 0.0

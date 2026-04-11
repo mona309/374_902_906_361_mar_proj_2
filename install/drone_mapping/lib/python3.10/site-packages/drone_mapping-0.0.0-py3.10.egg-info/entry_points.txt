@@ -1,6 +1,7 @@
 [console_scripts]
 drone_controller = drone_mapping.drone_controller:main
 drone_mapping_node = drone_mapping.drone_mapping_node:main
+gazebo_drone_controller = drone_mapping.gazebo_drone_controller:main
 odom_publisher = drone_mapping.odom_publisher:main
 safety_node = drone_mapping.safety_node:main
 simple_controller = drone_mapping.simple_controller:main
