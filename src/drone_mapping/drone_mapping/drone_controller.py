@@ -30,17 +30,20 @@ class DroneController:
     def step(self):
         rclpy.spin_once(self.__node, timeout_sec=0)
         
-        roll = self.__target_twist.angular.x
-        pitch = self.__target_twist.angular.y
+        forward = self.__target_twist.linear.x
+        strafe = self.__target_twist.linear.y
         yaw = self.__target_twist.angular.z
         altitude = self.__target_twist.linear.z
+
+        pitch = forward
+        roll = strafe
         
-        base_vel = 68.5 if abs(altitude) < 0.1 and abs(pitch) < 0.1 and abs(roll) < 0.1 and abs(yaw) < 0.1 else 68.5 + altitude * 10.0
+        base_vel = 68.5 + altitude * 10.0
         
-        fl = base_vel - roll - pitch + yaw
-        fr = base_vel + roll - pitch - yaw
-        rl = base_vel - roll + pitch - yaw
-        rr = base_vel + roll + pitch + yaw
+        fl = base_vel - pitch - roll + yaw
+        fr = base_vel - pitch + roll - yaw
+        rl = base_vel + pitch - roll - yaw
+        rr = base_vel + pitch + roll + yaw
         
         MAX_VEL = 100.0
         self.__front_left_motor.setVelocity(max(-MAX_VEL, min(fl, MAX_VEL)))

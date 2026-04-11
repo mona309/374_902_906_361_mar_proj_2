@@ -42,14 +42,13 @@ class SafetyNode(Node):
         safe_msg = Twist()
         
         if self.obstacle_detected:
-            # Only allow turning or moving backwards (angular.y > 0 for backward, wait)
-            # Just panic stop forward motion
+            # Stop forward motion and lateral movement if an obstacle is close.
+            safe_msg.linear.x = min(0.0, msg.linear.x)
+            safe_msg.linear.y = 0.0
             safe_msg.linear.z = msg.linear.z
             safe_msg.angular.z = msg.angular.z
-            if msg.angular.y > 0: # Check if trying to move backward
-                safe_msg.angular.y = msg.angular.y
-            else:
-                safe_msg.angular.y = 0.0 # Force no forward pitch
+            safe_msg.angular.x = msg.angular.x
+            safe_msg.angular.y = msg.angular.y
         else:
             safe_msg = msg
             

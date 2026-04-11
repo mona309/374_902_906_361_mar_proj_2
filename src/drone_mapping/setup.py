@@ -34,6 +34,8 @@ setup(
             'teleop_keyboard = drone_mapping.teleop_keyboard:main',
             'waypoint_navigator = drone_mapping.waypoint_navigator:main',
             'safety_node = drone_mapping.safety_node:main',
+            'odom_publisher = drone_mapping.odom_publisher:main',
+            'simple_controller = drone_mapping.simple_controller:main',
         ],
     },
 )

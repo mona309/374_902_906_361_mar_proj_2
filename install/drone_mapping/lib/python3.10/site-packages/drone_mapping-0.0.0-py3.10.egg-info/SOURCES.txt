@@ -12,13 +12,16 @@ setup.py
 drone_mapping/__init__.py
 drone_mapping/drone_controller.py
 drone_mapping/drone_mapping_node.py
+drone_mapping/odom_publisher.py
 drone_mapping/safety_node.py
+drone_mapping/simple_controller.py
 drone_mapping/teleop_keyboard.py
 drone_mapping/waypoint_navigator.py
 launch/bringup.launch.py
 launch/drone_mapping_launch.py
 launch/full_demo.launch.py
 launch/slam.launch.py
+launch/test_bringup.launch.py
 resource/drone_mapping
 rviz/drone_mapping.rviz
 rviz/mapping.rviz
@@ -27,3 +30,4 @@ test/test_flake8.py
 test/test_pep257.py
 worlds/drone_mapping_world.sdf
 worlds/map_world.wbt
+worlds/mavic_world.wbt
