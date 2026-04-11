@@ -31,3 +31,19 @@ setup(
         ],
     },
 )
+    zip_safe=True,
+    maintainer='Mona',
+    maintainer_email='user@todo.todo',
+    description='Drone-Based 3D Mapping using ROS2 Humble + Webots',
+    license='TODO: License declaration',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'drone_controller = drone_mapping.drone_controller:main',
+            'teleop_keyboard = drone_mapping.teleop_keyboard:main',
+            'waypoint_navigator = drone_mapping.waypoint_navigator:main',
+            'safety_node = drone_mapping.safety_node:main',
+>>>>>>> 8b71ccf53fff8e21c7ff19e681fc2e14b9c58cc8
+        ],
+    },
+)
