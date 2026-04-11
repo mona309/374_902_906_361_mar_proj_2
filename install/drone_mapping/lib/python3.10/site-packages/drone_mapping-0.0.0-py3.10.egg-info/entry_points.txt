@@ -1,2 +1,6 @@
 [console_scripts]
+drone_controller = drone_mapping.drone_controller:main
 drone_mapping_node = drone_mapping.drone_mapping_node:main
+safety_node = drone_mapping.safety_node:main
+teleop_keyboard = drone_mapping.teleop_keyboard:main
+waypoint_navigator = drone_mapping.waypoint_navigator:main

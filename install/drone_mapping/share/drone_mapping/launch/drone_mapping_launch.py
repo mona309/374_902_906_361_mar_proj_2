@@ -25,7 +25,7 @@ def generate_launch_description():
 
     # Start Gazebo with our world
     gz_launch = ExecuteProcess(
-        cmd=['gz', 'sim', '-r', world_path],
+        cmd=['gazebo', '--verbose', world_path],
         output='screen'
     )
 
