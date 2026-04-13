@@ -135,4 +135,4 @@ if __name__ == "__main__":
     #conn = WebSocketConnection('ws://127.0.0.1:5760')
     drone = BackyardFlyer(conn)
     time.sleep(2)
-    drone.start()
+    drone.start()# Reference solution - not used in main path planning
