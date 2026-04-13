@@ -1,0 +1,8 @@
+*.pyc
+__pycache__/
+*.png
+*.mp4
+Logs/
+.idea/
+random_images/
+misc/
