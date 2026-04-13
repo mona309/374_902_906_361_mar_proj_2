@@ -224,34 +224,46 @@ def pickup_goal(grid, start, callback):
     plt.show()
 
 
-def path_simplify(grid, path):
+def path_simplify(grid, path, safety_margin=5):
     """
     Test many nodes and find the longest possible direct path between them.
+    ADDED safety_margin to prevent going through buildings!
     """
     if len(path) <= 2:
         return path
-    print("Simplifying path:", path)
+    print("Simplifying path with safety margin:", safety_margin)
     start_idx = 0
     end_idx = len(path) - 1
     result_path = [path[0]]
     while start_idx < end_idx:
         start = path[start_idx]
         end = path[end_idx]
-        min_height = min(start[2], end[2])
+        min_height = min(start[2], end[2]) + safety_margin
         cells = bresenham(start, end)
 
         has_obs = False
         for n, e in cells:
-            if grid[n, e] >= min_height:
+            required_alt = grid[n, e] + safety_margin
+            if required_alt >= min_height:
                 has_obs = True
+                print(f"Obstacle at ({n},{e}): need {required_alt}m, have {min_height}m")
                 break
 
         if has_obs:
             end_idx -= 1
             if end_idx == start_idx:
-                print("No direct path! {}".format(path[start_idx]))
+                result_path.append(path[start_idx + 1])
+                start_idx += 1
+                end_idx = len(path) - 1
         else:
             result_path.append(end)
+            start_idx = end_idx
+            end_idx = len(path) - 1
+    if result_path[-1] != path[-1]:
+        result_path.append(path[-1])
+
+    print("Final path:", result_path)
+    return result_path
             start_idx = end_idx
             end_idx = len(path) - 1
     if result_path[-1] != path[-1]:

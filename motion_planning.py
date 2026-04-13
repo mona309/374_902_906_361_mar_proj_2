@@ -96,8 +96,13 @@ class MotionPlanning(Drone):
     def waypoint_transition(self):
         self.flight_state = States.WAYPOINT
         print("waypoint transition")
+        if not self.waypoints:
+            print("No waypoints! Landing...")
+            self.landing_transition()
+            return
         print(self.waypoints)
         self.target_position = self.waypoints.pop(0)
+        self.target_position[2] = max(0, self.target_position[2])
         print('target position', self.target_position)
         self.cmd_position(self.target_position[0], self.target_position[1], self.target_position[2],
                         self.target_position[3])
@@ -173,7 +178,7 @@ class MotionPlanning(Drone):
         print('global home {0}, position {1}, local position {2}'.format(self.global_home, self.global_position,
                                                                         self.local_position))
         # Read in obstacle map
-        data = np.loadtxt('colliders.csv', delimiter=',', dtype='Float64', skiprows=2)
+        data = np.loadtxt('colliders.csv', delimiter=',', dtype=np.float64, skiprows=2)
 
         # Define a grid for a particular altitude and safety margin around obstacles
         grid, north_offset, east_offset = create_grid(data, SAFETY_DISTANCE)
@@ -205,7 +210,7 @@ class MotionPlanning(Drone):
         path = a_star(grid, heuristic, grid_start, grid_goal, TARGET_ALTITUDE)
         path = path_prune(path, collinear_points)
         print("3D Pruned Path:", path)
-        path = path_simplify(grid, path)
+        path = path_simplify(grid, path, SAFETY_DISTANCE)
         print("Path found!")
         print(path)
         self.path = path
