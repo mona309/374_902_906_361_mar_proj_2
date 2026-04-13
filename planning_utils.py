@@ -264,6 +264,13 @@ def path_simplify(grid, path, safety_margin=5):
 
     print("Final path:", result_path)
     return result_path
+            start_idx = end_idx
+            end_idx = len(path) - 1
+    if result_path[-1] != path[-1]:
+        result_path.append(path[-1])
+
+    print("Final path:", result_path)
+    return result_path
 
 
 def bresenham(start, end):
