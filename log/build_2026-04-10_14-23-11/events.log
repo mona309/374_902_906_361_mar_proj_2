@@ -1,0 +1,91 @@
+[0.000000] (-) TimerEvent: {}
+[0.000763] (drone_mapping) JobQueued: {'identifier': 'drone_mapping', 'dependencies': OrderedDict()}
+[0.001791] (drone_mapping) JobStarted: {'identifier': 'drone_mapping'}
+[0.099890] (-) TimerEvent: {}
+[0.200627] (-) TimerEvent: {}
+[0.301077] (-) TimerEvent: {}
+[0.401725] (-) TimerEvent: {}
+[0.502178] (-) TimerEvent: {}
+[0.602622] (-) TimerEvent: {}
+[0.703014] (-) TimerEvent: {}
+[0.803417] (-) TimerEvent: {}
+[0.904142] (-) TimerEvent: {}
+[1.004742] (-) TimerEvent: {}
+[1.105283] (-) TimerEvent: {}
+[1.205930] (-) TimerEvent: {}
+[1.306450] (-) TimerEvent: {}
+[1.407200] (-) TimerEvent: {}
+[1.507850] (-) TimerEvent: {}
+[1.608385] (-) TimerEvent: {}
+[1.709021] (-) TimerEvent: {}
+[1.809486] (-) TimerEvent: {}
+[1.910205] (-) TimerEvent: {}
+[2.010773] (-) TimerEvent: {}
+[2.111293] (-) TimerEvent: {}
+[2.211814] (-) TimerEvent: {}
+[2.312416] (-) TimerEvent: {}
+[2.413026] (-) TimerEvent: {}
+[2.513676] (-) TimerEvent: {}
+[2.614437] (-) TimerEvent: {}
+[2.715007] (-) TimerEvent: {}
+[2.815514] (-) TimerEvent: {}
+[2.916133] (-) TimerEvent: {}
+[3.016681] (-) TimerEvent: {}
+[3.113513] (drone_mapping) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/drone_mapping', 'build', '--build-base', '/home/mona/drone_mapping_ws/build/drone_mapping/build', 'install', '--record', '/home/mona/drone_mapping_ws/build/drone_mapping/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/mona/drone_mapping_ws/src/drone_mapping', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'mona', 'GIT_EDITOR': ':', 'GIT_ASKPASS': '/home/mona/.vscode-server-insiders/bin/1ec46de152cab65d0304db62e2aa0fcb6e1a5b1f/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LIBGL_ALWAYS_SOFTWARE': '1', 'LD_LIBRARY_PATH': '/home/mona/turtlebot3_ws/install/turtlebot3_msgs/lib:/home/mona/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/lib:/home/mona/turtlebot3_ws/install/dynamixel_sdk/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/mona', 'OLDPWD': '/home/mona/drone_mapping_ws', 'TERM_PROGRAM_VERSION': '1.116.0-insider', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-e503c0be-a946-4f4c-a916-0e49e687647f.sock', 'GAZEBO_MASTER_URI': 'http://127.0.0.1:11345', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/mona/.vscode-server-insiders/bin/1ec46de152cab65d0304db62e2aa0fcb6e1a5b1f/extensions/git/dist/askpass-main.js', 'VSCODE_GIT_ASKPASS_NODE': '/home/mona/.vscode-server-insiders/bin/1ec46de152cab65d0304db62e2aa0fcb6e1a5b1f/node', 'VSCODE_PYTHON_AUTOACTIVATE_GUARD': '1', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'WSL_DISTRO_NAME': 'Ubuntu-22.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/mona/turtlebot3_ws/install', 'ROS_DISTRO': 'humble', 'LOGNAME': 'mona', 'NAME': 'MonasLaptopy', 'WSL_INTEROP': '/run/WSL/5872_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'ROS_LOCALHOST_ONLY': '1', 'HISTCONTROL': 'ignorespace', 'PATH': '/home/mona/.opencode/bin:/usr/local/webots:/home/mona/.vscode-server-insiders/data/User/globalStorage/github.copilot-chat/debugCommand:/home/mona/.vscode-server-insiders/data/User/globalStorage/github.copilot-chat/copilotCli:/home/mona/.vscode-server-insiders/bin/1ec46de152cab65d0304db62e2aa0fcb6e1a5b1f/bin/remote-cli:/home/mona/.local/bin:/home/mona/.opencode/bin:/usr/local/webots:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files (x86)/VMware/VMware Workstation/bin/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Windows/system32:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/Monisha/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand:/mnt/c/Users/Monisha/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli:/mnt/c/Program Files (x86)/VMware/VMware Workstation/bin/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Windows/system32:/mnt/c/Program Files/dotnet/:/mnt/c/Users/Monisha/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/Monisha/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Monisha/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/Monisha/.vscode/extensions/ms-python.debugpy-2025.18.0-win32-x64/bundled/scripts/noConfigScripts:/mnt/c/Program Files/Java/jdk-21/bin:/mnt/c/Users/Monisha/AppData/Local/Programs/Antigravity/bin:/mnt/c/Users/Monisha/AppData/Local/Programs/Microsoft VS Code Insiders/bin:/mnt/c/Users/Monisha/AppData/Local/Programs/Windsurf/bin:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-14048dde1c.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '42', 'AMENT_PREFIX_PATH': '/home/mona/turtlebot3_ws/install/turtlebot3:/home/mona/turtlebot3_ws/install/turtlebot3_teleop:/home/mona/turtlebot3_ws/install/turtlebot3_simulations:/home/mona/turtlebot3_ws/install/turtlebot3_bringup:/home/mona/turtlebot3_ws/install/turtlebot3_node:/home/mona/turtlebot3_ws/install/turtlebot3_navigation2:/home/mona/turtlebot3_ws/install/turtlebot3_fake_node:/home/mona/turtlebot3_ws/install/turtlebot3_example:/home/mona/turtlebot3_ws/install/turtlebot3_msgs:/home/mona/turtlebot3_ws/install/turtlebot3_manipulation_gazebo:/home/mona/turtlebot3_ws/install/turtlebot3_gazebo:/home/mona/turtlebot3_ws/install/turtlebot3_description:/home/mona/turtlebot3_ws/install/turtlebot3_cartographer:/home/mona/turtlebot3_ws/install/dynamixel_sdk_examples:/home/mona/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/mona/turtlebot3_ws/install/dynamixel_sdk:/opt/ros/humble', 'SHELL': '/bin/bash', 'WEBOTS_HOME': '/usr/local/webots', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'GAZEBO_IP': '127.0.0.1', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'GIT_PAGER': 'cat', 'PWD': '/home/mona/drone_mapping_ws/build/drone_mapping', 'GIT_MERGE_AUTOEDIT': 'no', 'TURTLEBOT3_MODEL': 'waffle_pi', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'MESA_GL_VERSION_OVERRIDE': '3.3', 'PYTHONPATH': '/home/mona/drone_mapping_ws/build/drone_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages:/home/mona/turtlebot3_ws/build/turtlebot3_teleop:/home/mona/turtlebot3_ws/install/turtlebot3_teleop/lib/python3.10/site-packages:/home/mona/turtlebot3_ws/build/turtlebot3_example:/home/mona/turtlebot3_ws/install/turtlebot3_example/lib/python3.10/site-packages:/home/mona/turtlebot3_ws/install/turtlebot3_msgs/local/lib/python3.10/dist-packages:/home/mona/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces/local/lib/python3.10/dist-packages:/home/mona/turtlebot3_ws/install/dynamixel_sdk/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/mona/turtlebot3_ws/install/turtlebot3:/home/mona/turtlebot3_ws/install/turtlebot3_simulations:/home/mona/turtlebot3_ws/install/turtlebot3_bringup:/home/mona/turtlebot3_ws/install/turtlebot3_node:/home/mona/turtlebot3_ws/install/turtlebot3_navigation2:/home/mona/turtlebot3_ws/install/turtlebot3_fake_node:/home/mona/turtlebot3_ws/install/turtlebot3_msgs:/home/mona/turtlebot3_ws/install/turtlebot3_manipulation_gazebo:/home/mona/turtlebot3_ws/install/turtlebot3_gazebo:/home/mona/turtlebot3_ws/install/turtlebot3_description:/home/mona/turtlebot3_ws/install/turtlebot3_cartographer:/home/mona/turtlebot3_ws/install/dynamixel_sdk_examples:/home/mona/turtlebot3_ws/install/dynamixel_sdk_custom_interfaces:/home/mona/turtlebot3_ws/install/dynamixel_sdk', 'WSLENV': 'VSCODE_WSL_EXT_LOCATION/up'}, 'shell': False}
+[3.121835] (-) TimerEvent: {}
+[3.222298] (-) TimerEvent: {}
+[3.323196] (-) TimerEvent: {}
+[3.423829] (-) TimerEvent: {}
+[3.524409] (-) TimerEvent: {}
+[3.624917] (-) TimerEvent: {}
+[3.725617] (-) TimerEvent: {}
+[3.826528] (-) TimerEvent: {}
+[3.891855] (drone_mapping) StdoutLine: {'line': b'running egg_info\n'}
+[3.892161] (drone_mapping) StdoutLine: {'line': b'creating ../../build/drone_mapping/drone_mapping.egg-info\n'}
+[3.923039] (drone_mapping) StdoutLine: {'line': b'writing ../../build/drone_mapping/drone_mapping.egg-info/PKG-INFO\n'}
+[3.924142] (drone_mapping) StdoutLine: {'line': b'writing dependency_links to ../../build/drone_mapping/drone_mapping.egg-info/dependency_links.txt\n'}
+[3.924404] (drone_mapping) StdoutLine: {'line': b'writing entry points to ../../build/drone_mapping/drone_mapping.egg-info/entry_points.txt\n'}
+[3.924713] (drone_mapping) StdoutLine: {'line': b'writing requirements to ../../build/drone_mapping/drone_mapping.egg-info/requires.txt\n'}
+[3.924824] (drone_mapping) StdoutLine: {'line': b'writing top-level names to ../../build/drone_mapping/drone_mapping.egg-info/top_level.txt\n'}
+[3.925167] (drone_mapping) StdoutLine: {'line': b"writing manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'\n"}
+[3.926632] (-) TimerEvent: {}
+[3.978881] (drone_mapping) StdoutLine: {'line': b"reading manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'\n"}
+[3.980677] (drone_mapping) StdoutLine: {'line': b"writing manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'\n"}
+[3.981170] (drone_mapping) StdoutLine: {'line': b'running build\n'}
+[3.981530] (drone_mapping) StdoutLine: {'line': b'running build_py\n'}
+[3.981945] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/build/drone_mapping/build\n'}
+[3.982255] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/build/drone_mapping/build/lib\n'}
+[3.982354] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping\n'}
+[3.982862] (drone_mapping) StdoutLine: {'line': b'copying drone_mapping/__init__.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping\n'}
+[3.983136] (drone_mapping) StdoutLine: {'line': b'copying drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping\n'}
+[3.983369] (drone_mapping) StdoutLine: {'line': b'running install\n'}
+[3.988433] (drone_mapping) StdoutLine: {'line': b'running install_lib\n'}
+[4.014449] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping\n'}
+[4.014636] (drone_mapping) StdoutLine: {'line': b'copying /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping/__init__.py -> /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping\n'}
+[4.015262] (drone_mapping) StdoutLine: {'line': b'copying /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping\n'}
+[4.016419] (drone_mapping) StdoutLine: {'line': b'byte-compiling /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping/__init__.py to __init__.cpython-310.pyc\n'}
+[4.016654] (drone_mapping) StdoutLine: {'line': b'byte-compiling /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping/drone_mapping_node.py to drone_mapping_node.cpython-310.pyc\n'}
+[4.020073] (drone_mapping) StdoutLine: {'line': b'running install_data\n'}
+[4.020405] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index\n'}
+[4.020464] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index\n'}
+[4.020507] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index/packages\n'}
+[4.020637] (drone_mapping) StdoutLine: {'line': b'copying resource/drone_mapping -> /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index/packages\n'}
+[4.020697] (drone_mapping) StdoutLine: {'line': b'copying package.xml -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping\n'}
+[4.021003] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/launch\n'}
+[4.021282] (drone_mapping) StdoutLine: {'line': b'copying launch/drone_mapping_launch.py -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/launch\n'}
+[4.021386] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/worlds\n'}
+[4.021575] (drone_mapping) StdoutLine: {'line': b'copying worlds/drone_mapping_world.sdf -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/worlds\n'}
+[4.021680] (drone_mapping) StdoutLine: {'line': b'creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/rviz\n'}
+[4.022187] (drone_mapping) StdoutLine: {'line': b'copying rviz/drone_mapping.rviz -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/rviz\n'}
+[4.022315] (drone_mapping) StdoutLine: {'line': b'running install_egg_info\n'}
+[4.026801] (-) TimerEvent: {}
+[4.048469] (drone_mapping) StdoutLine: {'line': b'Copying ../../build/drone_mapping/drone_mapping.egg-info to /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping-0.0.0-py3.10.egg-info\n'}
+[4.052997] (drone_mapping) StdoutLine: {'line': b'running install_scripts\n'}
+[4.126937] (-) TimerEvent: {}
+[4.227320] (-) TimerEvent: {}
+[4.319465] (drone_mapping) StdoutLine: {'line': b'Installing drone_mapping_node script to /home/mona/drone_mapping_ws/install/drone_mapping/lib/drone_mapping\n'}
+[4.321517] (drone_mapping) StdoutLine: {'line': b"writing list of installed files to '/home/mona/drone_mapping_ws/build/drone_mapping/install.log'\n"}
+[4.327520] (-) TimerEvent: {}
+[4.359421] (drone_mapping) CommandEnded: {'returncode': 0}
+[4.424605] (drone_mapping) JobEnded: {'identifier': 'drone_mapping', 'rc': 0}
+[4.425522] (-) EventReactorShutdown: {}

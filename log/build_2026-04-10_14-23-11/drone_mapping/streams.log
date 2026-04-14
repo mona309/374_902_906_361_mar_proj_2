@@ -1,0 +1,43 @@
+[3.120s] Invoking command in '/home/mona/drone_mapping_ws/src/drone_mapping': PYTHONPATH=/home/mona/drone_mapping_ws/build/drone_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_mapping build --build-base /home/mona/drone_mapping_ws/build/drone_mapping/build install --record /home/mona/drone_mapping_ws/build/drone_mapping/install.log --single-version-externally-managed install_data
+[3.890s] running egg_info
+[3.890s] creating ../../build/drone_mapping/drone_mapping.egg-info
+[3.921s] writing ../../build/drone_mapping/drone_mapping.egg-info/PKG-INFO
+[3.922s] writing dependency_links to ../../build/drone_mapping/drone_mapping.egg-info/dependency_links.txt
+[3.923s] writing entry points to ../../build/drone_mapping/drone_mapping.egg-info/entry_points.txt
+[3.923s] writing requirements to ../../build/drone_mapping/drone_mapping.egg-info/requires.txt
+[3.923s] writing top-level names to ../../build/drone_mapping/drone_mapping.egg-info/top_level.txt
+[3.923s] writing manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+[3.977s] reading manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+[3.979s] writing manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+[3.979s] running build
+[3.980s] running build_py
+[3.980s] creating /home/mona/drone_mapping_ws/build/drone_mapping/build
+[3.980s] creating /home/mona/drone_mapping_ws/build/drone_mapping/build/lib
+[3.981s] creating /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+[3.981s] copying drone_mapping/__init__.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+[3.982s] copying drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+[3.982s] running install
+[3.987s] running install_lib
+[4.013s] creating /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping
+[4.013s] copying /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping/__init__.py -> /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping
+[4.014s] copying /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping
+[4.015s] byte-compiling /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping/__init__.py to __init__.cpython-310.pyc
+[4.015s] byte-compiling /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping/drone_mapping_node.py to drone_mapping_node.cpython-310.pyc
+[4.019s] running install_data
+[4.019s] creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index
+[4.019s] creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index
+[4.019s] creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index/packages
+[4.019s] copying resource/drone_mapping -> /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index/packages
+[4.019s] copying package.xml -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping
+[4.019s] creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/launch
+[4.020s] copying launch/drone_mapping_launch.py -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/launch
+[4.020s] creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/worlds
+[4.020s] copying worlds/drone_mapping_world.sdf -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/worlds
+[4.020s] creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/rviz
+[4.020s] copying rviz/drone_mapping.rviz -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/rviz
+[4.021s] running install_egg_info
+[4.047s] Copying ../../build/drone_mapping/drone_mapping.egg-info to /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping-0.0.0-py3.10.egg-info
+[4.051s] running install_scripts
+[4.318s] Installing drone_mapping_node script to /home/mona/drone_mapping_ws/install/drone_mapping/lib/drone_mapping
+[4.320s] writing list of installed files to '/home/mona/drone_mapping_ws/build/drone_mapping/install.log'
+[4.358s] Invoked command in '/home/mona/drone_mapping_ws/src/drone_mapping' returned '0': PYTHONPATH=/home/mona/drone_mapping_ws/build/drone_mapping/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_mapping build --build-base /home/mona/drone_mapping_ws/build/drone_mapping/build install --record /home/mona/drone_mapping_ws/build/drone_mapping/install.log --single-version-externally-managed install_data

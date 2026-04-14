@@ -1,61 +1,50 @@
 import os
 from launch import LaunchDescription
-from launch.actions import EmitEvent, RegisterEventHandler
-from launch.event_handlers import OnProcessStart
-from launch.events import matches_action
-from launch_ros.actions import LifecycleNode
-from launch_ros.event_handlers import OnStateTransition
-from launch_ros.events.lifecycle import ChangeState
-from lifecycle_msgs.msg import Transition
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-
-    # We use slam_toolbox for 2D SLAM
-    slam_node = LifecycleNode(
-        package='slam_toolbox',
-        executable='async_slam_toolbox_node',
-        name='slam_toolbox',
-        namespace='',
-        output='screen',
-        parameters=[{
-            'use_sim_time': True,
-            # Keep a simple fixed odom frame and let slam_toolbox publish map->odom.
-            'odom_frame': 'odom',
-            'base_frame': 'base_link',
-            'map_frame': 'map',
-            'scan_topic': '/drone/lidar/scan',
-            'mode': 'mapping',
-            'transform_publish_period': 0.05
-        }]
-    )
-
-    configure_slam = EmitEvent(
-        event=ChangeState(
-            lifecycle_node_matcher=matches_action(slam_node),
-            transition_id=Transition.TRANSITION_CONFIGURE,
-        )
-    )
-
-    activate_slam = EmitEvent(
-        event=ChangeState(
-            lifecycle_node_matcher=matches_action(slam_node),
-            transition_id=Transition.TRANSITION_ACTIVATE,
-        )
+    rtabmap_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('rtabmap_launch'),
+                'launch',
+                'rtabmap.launch.py'
+            )
+        ),
+        launch_arguments={
+            'use_sim_time': 'true',
+            'subscribe_scan_cloud': 'true',
+            'scan_cloud_topic': '/drone/lidar_3d/pointcloud',
+            'subscribe_depth': 'false',
+            'subscribe_rgb': 'false',
+            'subscribe_stereo': 'false',
+            'subscribe_rgbd': 'false',
+            'subscribe_sensor_data': 'false',
+            'subscribe_odom_info': 'false',
+            'subscribe_user_data': 'false',
+            'subscribe_scan': 'false',
+            'subscribe_scan_descriptor': 'false',
+            'visual_odometry': 'false',
+            'icp_odometry': 'true',
+            'rtabmap_viz': 'false',
+            'rviz': 'false',
+            'queue_size': '50',
+            'sync_queue_size': '50',
+            'scan_normal_k': '0',
+            'frame_id': 'base_link',
+            'map_frame_id': 'map',
+            'approx_sync': 'false',
+            'qos_image': '0',
+            'qos_camera_info': '0',
+            'qos_scan': '0',
+            'qos_odom': '0',
+            'qos_user_data': '0',
+            'odom_topic': '/odom'
+        }.items()
     )
 
     return LaunchDescription([
-        slam_node,
-        RegisterEventHandler(
-            OnProcessStart(
-                target_action=slam_node,
-                on_start=[configure_slam],
-            )
-        ),
-        RegisterEventHandler(
-            OnStateTransition(
-                target_lifecycle_node=slam_node,
-                goal_state='inactive',
-                entities=[activate_slam],
-            )
-        )
+        rtabmap_launch
     ])

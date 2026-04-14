@@ -1,0 +1,65 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/dji/mavic/protos/Mavic2Pro.proto"
+
+WorldInfo {
+  title "Simple Mavic 2 PRO"
+}
+
+Viewpoint {
+  position 5 5 5
+  orientation -0.5 -0.5 -0.5 2.09
+  follow "Mavic_2_PRO"
+}
+
+Background {
+  skyColor [0.4 0.7 1]
+}
+
+DirectionalLight {
+  direction 1 1 1
+  intensity 2
+}
+
+Solid {
+  translation 0 0 -0.5
+  children [
+    Shape {
+      geometry Box {
+        size 100 100 1
+      }
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        roughness 0.5
+      }
+    }
+  ]
+}
+
+Mavic2Pro {
+  translation 0 0 0.1
+  name "Mavic_2_PRO"
+  controller "<extern>"
+  cameraSlot [
+    Camera {
+      width 400
+      height 240
+    }
+    Lidar {
+      name "lidar"
+      horizontalResolution 512
+      fieldOfView 6.28318
+      verticalFieldOfView 0.2
+      numberOfLayers 1
+      maxRange 10
+    }
+    Lidar {
+      name "lidar_3d"
+      horizontalResolution 512
+      fieldOfView 6.28318
+      verticalFieldOfView 0.5235
+      numberOfLayers 16
+      maxRange 10
+    }
+  ]
+}

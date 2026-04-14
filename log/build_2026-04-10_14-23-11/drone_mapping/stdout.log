@@ -1,0 +1,41 @@
+running egg_info
+creating ../../build/drone_mapping/drone_mapping.egg-info
+writing ../../build/drone_mapping/drone_mapping.egg-info/PKG-INFO
+writing dependency_links to ../../build/drone_mapping/drone_mapping.egg-info/dependency_links.txt
+writing entry points to ../../build/drone_mapping/drone_mapping.egg-info/entry_points.txt
+writing requirements to ../../build/drone_mapping/drone_mapping.egg-info/requires.txt
+writing top-level names to ../../build/drone_mapping/drone_mapping.egg-info/top_level.txt
+writing manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+reading manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+writing manifest file '../../build/drone_mapping/drone_mapping.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/mona/drone_mapping_ws/build/drone_mapping/build
+creating /home/mona/drone_mapping_ws/build/drone_mapping/build/lib
+creating /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+copying drone_mapping/__init__.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+copying drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping
+running install
+running install_lib
+creating /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping
+copying /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping/__init__.py -> /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping
+copying /home/mona/drone_mapping_ws/build/drone_mapping/build/lib/drone_mapping/drone_mapping_node.py -> /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping
+byte-compiling /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping/drone_mapping_node.py to drone_mapping_node.cpython-310.pyc
+running install_data
+creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index
+creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index
+creating /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index/packages
+copying resource/drone_mapping -> /home/mona/drone_mapping_ws/install/drone_mapping/share/ament_index/resource_index/packages
+copying package.xml -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping
+creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/launch
+copying launch/drone_mapping_launch.py -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/launch
+creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/worlds
+copying worlds/drone_mapping_world.sdf -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/worlds
+creating /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/rviz
+copying rviz/drone_mapping.rviz -> /home/mona/drone_mapping_ws/install/drone_mapping/share/drone_mapping/rviz
+running install_egg_info
+Copying ../../build/drone_mapping/drone_mapping.egg-info to /home/mona/drone_mapping_ws/install/drone_mapping/lib/python3.10/site-packages/drone_mapping-0.0.0-py3.10.egg-info
+running install_scripts
+Installing drone_mapping_node script to /home/mona/drone_mapping_ws/install/drone_mapping/lib/drone_mapping
+writing list of installed files to '/home/mona/drone_mapping_ws/build/drone_mapping/install.log'
