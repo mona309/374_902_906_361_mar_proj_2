@@ -1,4 +1,5 @@
 # Drone-Based 3D Mapping using ROS2 Humble + Webots
+# team 2
 
 This project fulfills the requirements for a drone-based 3D mapping mini-project in robotics. It features a complete ROS2 workspace simulating a Mavic2Pro executing 2D SLAM in Webots to map obstacles.
 
