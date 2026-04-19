@@ -12,6 +12,7 @@ from udacidrone.messaging import MsgID
 from planning_utils import create_grid, a_star, path_prune, heuristic, pickup_goal, \
 collinear_points, path_simplify, convert_25d_3d
 
+# Default values, can be overridden by user input
 TARGET_ALTITUDE = 5
 SAFETY_DISTANCE = 5
 
@@ -31,6 +32,8 @@ class MotionPlanning(Drone):
 
         self.target_position = np.array([0.0, 0.0, 0.0])
         self.waypoints = []
+        self.original_waypoints = []
+        self.flight_history = []
         self.in_mission = True
         self.check_state = {}
 
@@ -51,6 +54,9 @@ class MotionPlanning(Drone):
         self.register_callback(MsgID.STATE, self.state_callback)
 
     def local_position_callback(self):
+        if self.flight_state in [States.TAKEOFF, States.WAYPOINT, States.LANDING]:
+            self.flight_history.append((self.local_position[0], self.local_position[1], -self.local_position[2]))
+            
         if self.flight_state == States.TAKEOFF:
             if -1.0 * self.local_position[2] > 0.95 * self.target_position[2]:
                 self.waypoint_transition()
@@ -128,6 +134,36 @@ class MotionPlanning(Drone):
         print("Sending waypoints to simulator ...")
         data = msgpack.dumps(self.waypoints)
         self.connection._master.write(data)
+
+    def plot_flight_path(self):
+        print("Consolidating flight logs and generating trajectory plot...")
+        import matplotlib.pyplot as plt
+        
+        if not self.flight_history or not self.original_waypoints:
+            print("No flight history to plot.")
+            return
+
+        planned_e = [w[1] for w in self.original_waypoints]
+        planned_n = [w[0] for w in self.original_waypoints]
+        
+        actual_e = [h[1] for h in self.flight_history]
+        actual_n = [h[0] for h in self.flight_history]
+
+        plt.figure(figsize=(10, 8))
+        plt.plot(planned_e, planned_n, 'rX-', label='Planned Path', linewidth=2, markersize=8)
+        plt.plot(actual_e, actual_n, 'b--', label='Actual Flight Trajectory', alpha=0.7)
+        
+        plt.scatter(actual_e[0], actual_n[0], c='g', marker='o', s=150, label='Start')
+        plt.scatter(planned_e[-1], planned_n[-1], c='purple', marker='*', s=200, label='Goal')
+        
+        plt.xlabel('East (meters)')
+        plt.ylabel('North (meters)')
+        plt.title('Autonomous Drone Flight: Planned vs Actual Path')
+        plt.legend()
+        plt.grid(True)
+        plt.savefig('flight_trajectory.png')
+        print("Success! Flight path plot saved as 'flight_trajectory.png'.")
+        plt.show()
 
     def pick_goal(self, event):
         evt = event.mouseevent
@@ -228,7 +264,8 @@ class MotionPlanning(Drone):
             print(path)
             self.path = path
             waypoints = self.path_to_waypoints(path)
-            self.waypoints = waypoints
+            self.waypoints = list(waypoints)
+            self.original_waypoints = list(waypoints)
             self.send_waypoints()
         except Exception as e:
             print(f"CRITICAL ERROR during path calculation: {e}. Initiating emergency landing!")
@@ -262,6 +299,20 @@ if __name__ == "__main__":
 
     conn = MavlinkConnection('tcp:{0}:{1}'.format(args.host, args.port), timeout=60)
     drone = MotionPlanning(conn)
+    
+    print("\n--- Drone Configuration Interface ---")
+    try:
+        alt_input = input(f"Enter target altitude (default {TARGET_ALTITUDE}m): ")
+        if alt_input.strip():
+            TARGET_ALTITUDE = int(alt_input)
+            
+        safe_input = input(f"Enter safety margin around buildings (default {SAFETY_DISTANCE}m): ")
+        if safe_input.strip():
+            SAFETY_DISTANCE = int(safe_input)
+    except ValueError:
+        print("Invalid input. Using default values.")
+    print(f"Configuration Set -> Altitude: {TARGET_ALTITUDE}m | Safety Margin: {SAFETY_DISTANCE}m\n")
+
     time.sleep(1)
 
     try:
@@ -281,3 +332,6 @@ if __name__ == "__main__":
             print("Drone forcefully shutdown.")
         finally:
             print("Drone controls released.")
+    finally:
+        # Once the simulator closes or finishes, generate the trajectory plot
+        drone.plot_flight_path()

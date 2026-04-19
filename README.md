@@ -9,6 +9,7 @@
 - **Collision Detection**: Safety margin ensures path clears all buildings
 - **Path Simplification**: Bresenham ray-tracing algorithm and collinearity tests
 - **Interactive Goal Selection**: Pick a goal dynamically from a generated matplotlib grid
+- **Robust Error Handling**: Emergency Kill/Stop switch (Ctrl+C), missing data handlers, and safe-landing fallbacks for aborted pathing.
 
 ## Project Structure
 
@@ -64,3 +65,12 @@ python3 motion_planning.py
 - Path climbs to required altitude to clear tall buildings
 - Safety margin prevents any collision
 - Visualizations show 3D environment structure
+
+## Team Roles & Syllabus Mapping
+
+This project represents equal contribution mapped directly to the Mobile and Autonomous Robotics syllabus:
+
+1. **The Control System (`motion_planning.py`)**: Handles the Navigation Architecture, MAVLink sensor fusion (IMU, GPS, Altimeter), the drone's flight state machine, and the emergency kill switch. *(Syllabus: Locomotion, Navigation Architectures, Sensors & Perception)*
+2. **The Core Algorithm (`planning_utils.py`)**: Implements the 2.5D grid environment, graph search engine (A*), heuristic evaluation, and cost penalties for altitude. *(Syllabus: Path Planning, Graph Search)*
+3. **Optimizations & Safety (`collision_demo.py`)**: Manages geometric obstacle avoidance and deterministic path smoothing using Bresenham's ray-tracing algorithm. *(Syllabus: Obstacle Avoidance)*
+4. **Advanced Modeling / Novelty (`voxel_3d.py`)**: Upgrades the standard 2.5D heightmap representation into a true 3D spatial voxel array for parsing complex volumetric environments. *(Syllabus: Map Representation, 3D Perception)*
