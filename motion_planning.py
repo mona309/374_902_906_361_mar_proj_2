@@ -161,12 +161,18 @@ class MotionPlanning(Drone):
 
         self.target_position[2] = TARGET_ALTITUDE
 
-        with open('colliders.csv', 'r') as f:
-            header_line = f.readline()
-            lat_str, lon_str = header_line.split(',')
-            lat = float(lat_str.strip().split(' ')[1])
-            lon = float(lon_str.strip().split(' ')[1])
-            print("Map home location: ({}, {})".format(lat, lon))
+        try:
+            with open('colliders.csv', 'r') as f:
+                header_line = f.readline()
+                lat_str, lon_str = header_line.split(',')
+                lat = float(lat_str.strip().split(' ')[1])
+                lon = float(lon_str.strip().split(' ')[1])
+                print("Map home location: ({}, {})".format(lat, lon))
+        except Exception as e:
+            print(f"ERROR: Could not read 'colliders.csv'. Exception: {e}")
+            print("Aborting mission and initiating landing sequence...")
+            self.landing_transition()
+            return
 
         home_position = (lon, lat, 0)
         self.set_home_position(*home_position)
@@ -207,16 +213,27 @@ class MotionPlanning(Drone):
 
         print('Start and Goal location', grid_start, grid_goal)
         print("Searching path...")
-        path = a_star(grid, heuristic, grid_start, grid_goal, TARGET_ALTITUDE)
-        path = path_prune(path, collinear_points)
-        print("3D Pruned Path:", path)
-        path = path_simplify(grid, path, SAFETY_DISTANCE)
-        print("Path found!")
-        print(path)
-        self.path = path
-        waypoints = self.path_to_waypoints(path)
-        self.waypoints = waypoints
-        self.send_waypoints()
+        try:
+            path = a_star(grid, heuristic, grid_start, grid_goal, TARGET_ALTITUDE)
+            
+            if path is None or len(path) == 0:
+                print("ERROR: A* search could not find a valid path to the requested goal! Drone is returning to start or landing.")
+                self.landing_transition()
+                return
+
+            path = path_prune(path, collinear_points)
+            print("3D Pruned Path:", path)
+            path = path_simplify(grid, path, SAFETY_DISTANCE)
+            print("Path found!")
+            print(path)
+            self.path = path
+            waypoints = self.path_to_waypoints(path)
+            self.waypoints = waypoints
+            self.send_waypoints()
+        except Exception as e:
+            print(f"CRITICAL ERROR during path calculation: {e}. Initiating emergency landing!")
+            self.landing_transition()
+            return
 
     def path_to_waypoints(self, path):
         # Convert path to waypoints
@@ -247,4 +264,20 @@ if __name__ == "__main__":
     drone = MotionPlanning(conn)
     time.sleep(1)
 
-    drone.start()
+    try:
+        drone.start()
+    except KeyboardInterrupt:
+        print("\n\n############################################")
+        print("!!! EMERGENCY KILL SWITCH ACTIVATED !!!")
+        print("############################################")
+        print("Terminating mission, attempting immediate landing...")
+        
+        try:
+            if drone.armed:
+                drone.landing_transition()
+                drone.disarming_transition()
+            drone.manual_transition()
+        except:
+            print("Drone forcefully shutdown.")
+        finally:
+            print("Drone controls released.")
